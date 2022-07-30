@@ -1,12 +1,24 @@
-<div class="container">
-<%= form_with model: @ganre, url: "/admin/ganres" do |f| %>
-<%= f.label :name, "ジャンル名" %>
-<%= f.text_field :name %>
-<%= f.submit "登録" %>
-<% end %>
+<div class="mt-5 container">
+  <div class="row">
+    <div class="mx-auto">
+      <%= form_with model: @ganre, url: "/admin/ganres" do |f| %>
+      <%= f.label :name, "ジャンル名" %>
+      <%= f.text_field :name %>
+      <%= f.submit "登録" %>
+      <% end %>
+      <table class="table">
+        <% @ganres.each do |ganre| %>
+          <tr>
+            <th>
+              <%= ganre.name %>
+            </th>
 
-<% @ganres.each do |ganre| %>
-<%= ganre.name %>
-<%= link_to "編集", edit_admin_ganre_path(ganre.id) %>
-<% end %>
+            <td>
+              <%= link_to "編集", edit_admin_ganre_path(ganre.id), class: "btn btn-primary btn-sm" %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
 </div>
