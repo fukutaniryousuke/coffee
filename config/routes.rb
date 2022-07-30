@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "/admin" => "admin/homes#top"
 
   namespace :admin do
+    resources :ganres, only:[:index, :create, :edit, :update]
   end
   devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",

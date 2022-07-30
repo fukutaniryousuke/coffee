@@ -1,0 +1,12 @@
+<div class="container">
+<%= form_with model: @ganre, url: "/admin/ganres" do |f| %>
+<%= f.label :name, "ジャンル名" %>
+<%= f.text_field :name %>
+<%= f.submit "登録" %>
+<% end %>
+
+<% @ganres.each do |ganre| %>
+<%= ganre.name %>
+<%= link_to "編集", edit_admin_ganre_path(ganre.id) %>
+<% end %>
+</div>
