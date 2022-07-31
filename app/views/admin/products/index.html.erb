@@ -1,1 +1,15 @@
-ProductIndex
+<div class="mt-5 container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>商品一覧</h2>
+      <% @products.each do |product| %>
+      <table class="table">
+        <tr>
+          <th>商品名</th>
+          <td><%= product.name %></td>
+        </tr>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>
