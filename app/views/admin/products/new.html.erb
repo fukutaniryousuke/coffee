@@ -1,15 +1,37 @@
-<%= form_with model: @product, url: new_admin_product_path do |f| %>
-<%= f.label :name, "商品画像" %>
-<%= f.file_field :image %>
+<div class="mt-5 container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>新規商品</h2>
+        <%= form_with model: @product, url: admin_products_path do |f| %>
 
-<%= f.label :name, "商品名" %>
-<%= f.text_field :name %>
+          <div class="form-group row">
+            <%= f.label :name, "商品画像", class:"col-md-3" %>
+            <%= f.file_field :image, class:"col-md-9" %>
+          </div>
 
-<%= f.label :name, "ジャンル" %>
-<%= f.select :ganre_id, Ganre.all.map { |ganre| [ganre.name, ganre.id] } %>
+          <div class="form-group row">
+            <%= f.label :name, "商品名", class:"col-md-3" %>
+            <%= f.text_field :name, class:"form-control col-md-9" %>
+          </div>
 
-<%= f.label :price, "税抜価格" %>
-<%= f.text_field :price %>円
+          <div class="form-group row">
+            <%= f.label :introduction, "商品説明", class:"col-md-3" %>
+            <%= f.text_area :introduction, class:"form-control col-md-9" %>
+          </div>
 
-<%= f.submit "販売", class: "btn btn-primary" %>
-<% end %>
+          <div class="form-group row">
+            <%= f.label :name, "ジャンル", class:"col-md-3" %>
+            <%= f.select :ganre_id, Ganre.all.map { |ganre| [ganre.name, ganre.id] }, class:"form-control col-md-9" %>
+          </div>
+
+          <div class="form-group row">
+            <%= f.label :price, "税抜価格", class:"col-md-3" %>
+            <%= f.text_field :price, class:"form-control col-md-7" %>　円
+          </div>
+
+            <%= f.submit "販売", class: "btn btn-primary form-control" %>
+
+        <% end %>
+    </div>
+  </div>
+</div>
