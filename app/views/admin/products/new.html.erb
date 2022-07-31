@@ -1,0 +1,15 @@
+<%= form_with model: @product, url: new_admin_product_path do |f| %>
+<%= f.label :name, "商品画像" %>
+<%= f.file_field :image %>
+
+<%= f.label :name, "商品名" %>
+<%= f.text_field :name %>
+
+<%= f.label :name, "ジャンル" %>
+<%= f.select :ganre_id, Ganre.all.map { |ganre| [ganre.name, ganre.id] } %>
+
+<%= f.label :price, "税抜価格" %>
+<%= f.text_field :price %>円
+
+<%= f.submit "販売", class: "btn btn-primary" %>
+<% end %>

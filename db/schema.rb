@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 2022_07_31_070839) do
     t.text "introduction"
     t.integer "ganre_id"
     t.integer "price"
-    t.boolean "is_active"
+    t.boolean "is_active", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
