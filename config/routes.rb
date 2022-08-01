@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :ganres, only:[:index, :create, :edit, :update]
     resources :products, only:[:index, :new, :show, :edit, :create, :update]
+    resources :customers, only:[:index, :show, :edit, :update]
   end
   devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
