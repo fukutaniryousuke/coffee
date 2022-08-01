@@ -13,6 +13,21 @@
  *= require_tree .
  *= require_self
  */
+ h3 {
+  font-family: cursive, STKaiti;
+  margin-left: 75px;
+ }
+.top {
+  position: relative;
+}
+ p {
+  position: absolute;
+  top:0;
+  left:50px;
+  font-size:30px;
+  color: white;
+  font-family: cursive, STKaiti;
+}
 .nav-link {
   font-family: cursive;
 }
