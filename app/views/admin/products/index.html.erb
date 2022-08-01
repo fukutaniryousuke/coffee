@@ -1,12 +1,27 @@
 <div class="mt-5 container">
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <h2>商品一覧</h2>
+    <div class="mx-auto">
+      <h2>商品一覧 <%= link_to "+", new_admin_product_path, class:"btn btn-primary" %></h2>
+
       <% @products.each do |product| %>
-      <table class="table">
-        <tr>
+      <table class="table table-hover">
+        <tr class="thead-dark">
           <th>商品名</th>
+          <th>税抜価格</th>
+          <th>ジャンル</th>
+          <th>販売ステータス</th>
+        </tr>
+        <tr onclick='window.location="<%= '/admin/products/' + product.id.to_s %>"' role="link">
           <td><%= product.name %></td>
+          <td>¥<%= product.price %></td>
+          <td><%= product.ganre.name %></td>
+          <td>
+            <% if product.is_active %>
+             販売中
+            <% else %>
+             販売停止中
+            <% end %>
+          </td>
         </tr>
       </table>
       <% end %>
