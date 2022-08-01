@@ -13,6 +13,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def edit
+    @product = Product.find(params[:id])
   end
 
   def create
@@ -26,6 +27,13 @@ class Admin::ProductsController < ApplicationController
   end
 
   def update
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
+      redirect_to admin_product_path(@product)
+      flash[:notice] = "変更が完了しました"
+    else
+      render "edit"
+    end
   end
 
   private

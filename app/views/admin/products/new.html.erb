@@ -29,6 +29,13 @@
             <%= f.text_field :price, class:"form-control col-md-7" %>　円
           </div>
 
+          <div>
+            <%= f.radio_button :is_active, :true %>
+            <%= f.label :is_active, "販売中", class:"text-success" %>
+            <%= f.radio_button :is_active, :false %>
+            <%= f.label :is_active, "販売停止中", class:"text-secondary" %>
+          </div>
+
             <%= f.submit "販売", class: "btn btn-primary form-control" %>
 
         <% end %>
