@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 devise_scope :customer do
   root to: "public/homes#top"
   get "/customers/my_page" => "public/customers#show", as: "my_page"
+  get "/customers/edit" => "public/customers#edit", as: "edit_customer"
 end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
