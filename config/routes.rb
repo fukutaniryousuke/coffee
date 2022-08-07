@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   get "/customers/my_page" => "public/customers#show", as: "my_page"
   get "/customers/edit" => "public/customers#edit", as: "edit_customers"
   patch "customers" => "public/customers#update"
-  resources :shipping_addresses, only:[:index, :edit, :create, :update, :destroy]
+  resources :shipping_addresses, only:[:index, :edit, :create, :update, :destroy], controller: "public/shipping_addresses"
+
 end
   devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
