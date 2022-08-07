@@ -1,0 +1,8 @@
+<%= form_with model: @shipping_address, url: shipping_addresses_path do |f| %>
+<%= f.label :postcode "郵便番号（ハイフンなし)" %>
+<%= f.text_field :postcode %>
+<%= f.label :address "住所" %>
+<%= f.text_field :address %>
+<%= f.label :name "宛名" %>
+<%= f.text_field :name %>
+<% end %>
