@@ -18,6 +18,11 @@
             <% end %>
           </li>
           <li class="nav-item d-inline-block">
+            <%= link_to products_path, class: 'nav-link text-white' do %>
+             Products
+            <% end %>
+          </li>
+          <li class="nav-item d-inline-block">
             <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-light' do %>
               LOG OUT
             <% end %>
