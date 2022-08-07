@@ -5,7 +5,7 @@
     <%= form_with model: @shipping_address, url: shipping_addresses_path do |f| %>
     <div class="form-group row">
       <%= f.label :postcode, "郵便番号（ハイフンなし)", class: "col-md-3" %>
-      <%= f.text_field :postcode, placeholder: "0000000", class: "form-control col-md-2" %>
+      <%= f.text_field :postcode, placeholder: "0000000", class: "form-control col-md-3" %>
     </div>
     <div class="form-group row">
       <%= f.label :address, "住所", class: "col-md-3" %>
@@ -13,8 +13,8 @@
     </div>
     <div class="form-group row">
       <%= f.label :name, "宛名", class: "col-md-3" %>
-      <%= f.text_field :name, placeholder: "コーヒー太郎", class: "form-control col-md-2" %>
+      <%= f.text_field :name, placeholder: "コーヒー太郎", class: "form-control col-md-3" %>
+      <%= f.submit "新規登録", class: "offset-3 btn btn-success" %>
     </div>
-      <%= f.submit "登録", class: "btn btn-success" %>
     <% end %>
 </div>
