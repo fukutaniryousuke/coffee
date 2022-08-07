@@ -21,6 +21,16 @@ class Public::ShippingAddressesController < ApplicationController
     @shipping_address = ShippingAddress.find(params[:id])
   end
 
+  def update
+    @shipping_address = ShippingAddress.find(params[:id])
+    if @shipping_address.update(shipping_address_params)
+      redirect_to shipping_addresses_path
+      flash[:notice] = "配送先の変更が完了しました"
+    else
+      render "edit"
+    end
+  end
+
   private
 
   def shipping_address_params
