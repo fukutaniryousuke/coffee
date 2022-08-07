@@ -1,9 +1,10 @@
 class Public::ShippingAddressesController < ApplicationController
-  
+
   def index
     @shipping_address = ShippingAddress.new
+    @shipping_addresses = current_customer.shipping_addresses.all
   end
-  
+
   def create
     @shipping_address = ShippingAddress.new(shipping_address_params)
     @shipping_address.customer_id = current_customer.id
@@ -11,15 +12,17 @@ class Public::ShippingAddressesController < ApplicationController
       redirect_to shipping_addresses_path
       flash[:notice] = "登録が完了しました"
     else
+      @shipping_addresses = current_customer.shipping_addresses.all
       render "index"
     end
   end
-  
+
   def edit
+    @shipping_address = ShippingAddress.find(params[:id])
   end
-  
+
   private
-  
+
   def shipping_address_params
     params.require(:shipping_address).permit(:postcode, :address, :name, :customer_id)
   end
